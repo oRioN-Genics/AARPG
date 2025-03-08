@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtkc813cix617"]
+[gd_scene load_steps=15 format=3 uid="uid://dtkc813cix617"]
 
 [ext_resource type="Texture2D" uid="uid://blvfunpp70ch6" path="res://Player/Sprites/ExamplePlayerSprite.png" id="1_g63ls"]
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_jqku2"]
 [ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="3_0y1pu"]
+[ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="4_l2fu8"]
+[ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="5_e72te"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgep3"]
 
@@ -159,3 +161,9 @@ libraries = {
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_0y1pu")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_l2fu8")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("5_e72te")
