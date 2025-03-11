@@ -27,5 +27,8 @@ position = Vector2(402, 24)
 [node name="Plant4" parent="." instance=ExtResource("3_7wto5")]
 position = Vector2(32, 321)
 
+[node name="Plant5" parent="." instance=ExtResource("3_7wto5")]
+position = Vector2(81, -72)
+
 [node name="Slime" parent="." instance=ExtResource("4_hklwg")]
 position = Vector2(222, 92)
