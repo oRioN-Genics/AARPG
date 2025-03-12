@@ -17,15 +17,15 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
-position = Vector2(375, 12)
+position = Vector2(411, 12)
 texture = ExtResource("1_q6pgy")
 region_enabled = true
 region_rect = Rect2(29, 0, 34, 8)
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
-offset_left = 311.0
+offset_left = 346.0
 offset_top = 22.0
-offset_right = 441.0
+offset_right = 476.0
 offset_bottom = 51.0
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 2
