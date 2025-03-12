@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy1kyiuv5tsr2"]
+[gd_scene load_steps=4 format=3 uid="uid://duuicchygkky7"]
 
 [ext_resource type="Script" path="res://GUI/Player_HUD/player_hud.gd" id="1_3f1cx"]
 [ext_resource type="Texture2D" uid="uid://bvncg32ixo1dc" path="res://GUI/Player_HUD/gui-health.png" id="1_q6pgy"]
-[ext_resource type="PackedScene" uid="uid://bau8q81i27jgm" path="res://GUI/Player_HUD/heart_gui.tscn" id="2_gxpf4"]
+[ext_resource type="PackedScene" uid="uid://bvy7fwyon6l22" path="res://GUI/Player_HUD/heart_gui.tscn" id="2_gxpf4"]
 
 [node name="PlayerHud" type="CanvasLayer"]
 script = ExtResource("1_3f1cx")
@@ -14,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 position = Vector2(375, 12)
