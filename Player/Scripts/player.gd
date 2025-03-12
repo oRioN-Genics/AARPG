@@ -83,6 +83,7 @@ func _TakeDamage(hurt_box: HurtBox) -> void:
 
 func UpdateHP(delta: int) -> void:
 	hp = clampi(hp + delta, 0, max_hp)
+	PlayerHud.UpdateHP(hp, max_hp)
 	pass
 
 
