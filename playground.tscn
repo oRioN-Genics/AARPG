@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://djrjgy1t17v70"]
+[gd_scene load_steps=7 format=3 uid="uid://djrjgy1t17v70"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_ybl2i"]
 [ext_resource type="PackedScene" uid="uid://0m4naes6rdws" path="res://Tile Maps/grass-01.tscn" id="2_ysdmc"]
 [ext_resource type="PackedScene" uid="uid://dpfcdlv60jhdf" path="res://Props/Plants/plant.tscn" id="3_7wto5"]
 [ext_resource type="PackedScene" uid="uid://cajnxamlp67t4" path="res://Levels/player_spawn.tscn" id="4_7iwxw"]
 [ext_resource type="PackedScene" uid="uid://bdwnnt1pnqm06" path="res://Enemies/Slime/Slime.tscn" id="4_hklwg"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fkywu"]
+vertices = PackedVector2Array(-151.063, 48.0781, -153.93, -376, 791.977, -376, 185.867, 26.1563, 791.023, 50.9375, 290.703, 48.0234, 267.531, 28.3281, 790.961, 405.008, -151, 405.977, -151, 134.813, 286.742, 252, 444.57, 137, 790.031, 137, 439.57, 252, 164.453, 50.9531, 200.242, 34.5781, 254.844, 37.3984, 166.063, 128.867, 289.938, 126.773)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 7, 13), PackedInt32Array(3, 14, 0), PackedInt32Array(15, 3, 2, 6, 16), PackedInt32Array(17, 15, 16, 18, 10), PackedInt32Array(9, 17, 10), PackedInt32Array(7, 10, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-161, 125, -161, 416, 801, 415, 800, 127, 435, 127, 430, 242, 297, 242, 300, 125, 267, 41, 287, 58, 801, 61, 802, -386, -164, -386, -161, 58, 169, 61, 188, 39, 159, 119)])
 
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
@@ -34,3 +39,6 @@ position = Vector2(222, 18)
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_7iwxw")]
 position = Vector2(244, 190)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_fkywu")

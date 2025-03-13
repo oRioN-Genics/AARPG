@@ -708,3 +708,5 @@ debug_color = Color(0.658538, 0.515441, 0, 0.42)
 libraries = {
 "": SubResource("AnimationLibrary_hnu4l")
 }
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

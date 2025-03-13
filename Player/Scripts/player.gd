@@ -3,6 +3,9 @@ class_name Player extends CharacterBody2D
 signal DirectionChanged(new_direction: Vector2)
 signal PlayerDamaged(hurt_box: HurtBox)
 
+@export var speed: float = 250.0
+var acceleration: float = 7
+
 var cardinal_direction: Vector2 = Vector2.DOWN
 const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 var direction: Vector2 = Vector2.ZERO
@@ -13,9 +16,13 @@ var max_hp: int = 6
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
+#@onready var right_click_sprite: Sprite2D = $RightClickSprite
+#@onready var click_anim: AnimationPlayer = $RightClickSprite/ClickAnim
+@onready var right_click_scene = preload("res://Player/right_click.tscn")
 @onready var hit_box: HitBox = $HitBox
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
+@onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,14 +35,27 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	direction = Vector2(
-		Input.get_axis("left", "right"),
-		Input.get_axis("up", "down")
-	).normalized()
+	pass
+	
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+		nav_agent.target_position = get_global_mouse_position()
+		var r_click = right_click_scene.instantiate()
+		r_click.global_position = nav_agent.target_position
+		get_tree().current_scene.add_child(r_click)
+		
 
 func _physics_process(_delta: float) -> void:
-	move_and_slide()
+	if nav_agent.is_navigation_finished():
+		direction = Vector2.ZERO
+	else:
+		direction = nav_agent.get_next_path_position() - global_position
+		direction = direction.normalized()
+		
+		velocity = velocity.lerp(direction * speed, acceleration * _delta)
+		
+		move_and_slide()
 
 
 func SetDirection() -> bool:
