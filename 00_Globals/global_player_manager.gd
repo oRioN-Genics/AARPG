@@ -1,6 +1,7 @@
 extends Node
 
-const PLAYER = preload("res://Player/player.tscn")
+const PLAYER = preload("res://Player/Knight/player.tscn")
+const WIZARD = preload("res://Player/Wizard/wizard.tscn")
 
 var player: Player
 var player_spawned: bool = false
@@ -12,7 +13,8 @@ func _ready() -> void:
 	
 
 func add_player_instance() -> void:
-	player = PLAYER.instantiate()
+	#player = PLAYER.instantiate()
+	player = WIZARD.instantiate()
 	add_child(player)
 
 

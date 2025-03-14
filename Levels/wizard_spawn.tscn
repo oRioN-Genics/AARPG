@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b373f6x3mgogd"]
+
+[ext_resource type="Texture2D" uid="uid://dt1t870ryrmal" path="res://Player/Sprites/PlayerSprite02.png" id="2_qba70"]
+
+[node name="WizardSpawn" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.935114, 0.304837, 0.64012, 0.611765)
+position = Vector2(0, -22)
+texture = ExtResource("2_qba70")
+hframes = 16
+vframes = 3

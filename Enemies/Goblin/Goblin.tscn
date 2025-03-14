@@ -679,6 +679,7 @@ _data = {
 collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_dol1x")
+hp = 8
 
 [node name="HurtBox" parent="." instance=ExtResource("2_0n8o6")]
 
@@ -701,7 +702,7 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_u0hk7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -19)
+position = Vector2(0, -14)
 texture = ExtResource("6_u6jiq")
 hframes = 8
 vframes = 3
@@ -767,6 +768,7 @@ libraries = {
 }
 
 [node name="VisionArea" parent="." instance=ExtResource("15_gid54")]
+position = Vector2(0, 4)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea"]
 position = Vector2(0, -12)
