@@ -16,8 +16,6 @@ var max_hp: int = 6
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
-#@onready var right_click_sprite: Sprite2D = $RightClickSprite
-#@onready var click_anim: AnimationPlayer = $RightClickSprite/ClickAnim
 @onready var right_click_scene = preload("res://Player/right_click.tscn")
 @onready var hit_box: HitBox = $HitBox
 @onready var sprite: Sprite2D = $Sprite2D
@@ -49,9 +47,11 @@ func _input(event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	if nav_agent.is_navigation_finished():
 		direction = Vector2.ZERO
+		nav_agent.debug_enabled = false
 	else:
 		direction = nav_agent.get_next_path_position() - global_position
 		direction = direction.normalized()
+		nav_agent.debug_enabled = true
 		
 		velocity = velocity.lerp(direction * speed, acceleration * _delta)
 		

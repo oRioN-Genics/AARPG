@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b15j1eesa24g5"]
+[gd_scene load_steps=9 format=3 uid="uid://b15j1eesa24g5"]
 
 [ext_resource type="PackedScene" uid="uid://0m4naes6rdws" path="res://Tile Maps/grass-01.tscn" id="1_3rkcq"]
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_8xjt3"]
 [ext_resource type="PackedScene" uid="uid://cajnxamlp67t4" path="res://Levels/player_spawn.tscn" id="2_e6gbj"]
 [ext_resource type="PackedScene" uid="uid://dpfcdlv60jhdf" path="res://Props/Plants/plant.tscn" id="4_olde1"]
+[ext_resource type="PackedScene" uid="uid://cq6rbxnktqarj" path="res://Enemies/Goblin/Goblin.tscn" id="5_1k270"]
 [ext_resource type="PackedScene" uid="uid://bdwnnt1pnqm06" path="res://Enemies/Slime/Slime.tscn" id="5_rl6qp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s4guc"]
@@ -49,11 +50,11 @@ position = Vector2(315, 191)
 [node name="Plant6" parent="." instance=ExtResource("4_olde1")]
 position = Vector2(293, 143)
 
-[node name="Slime" parent="." instance=ExtResource("5_rl6qp")]
-position = Vector2(-18, 278)
+[node name="Goblin" parent="." instance=ExtResource("5_1k270")]
+position = Vector2(-18, 280)
 
-[node name="Slime2" parent="." instance=ExtResource("5_rl6qp")]
-position = Vector2(308, -66)
+[node name="Slime" parent="." instance=ExtResource("5_rl6qp")]
+position = Vector2(359, -58)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_s4guc")

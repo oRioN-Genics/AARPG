@@ -21,7 +21,7 @@ func UpdateHeart(_index: int, _hp: int) -> void:
 
 
 func UpdateMaxHP(_max_hp: int) -> void:
-	var _heart_count: int = roundi(_max_hp / 2)
+	var _heart_count: int = roundi(_max_hp * 0.5)
 	for i in hearts.size():
 		if i < _heart_count:
 			hearts[i].visible = true
