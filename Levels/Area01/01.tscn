@@ -1,10 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://b15j1eesa24g5"]
+[gd_scene load_steps=8 format=3 uid="uid://b15j1eesa24g5"]
 
 [ext_resource type="PackedScene" uid="uid://0m4naes6rdws" path="res://Tile Maps/grass-01.tscn" id="1_3rkcq"]
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_8xjt3"]
 [ext_resource type="PackedScene" uid="uid://cajnxamlp67t4" path="res://Levels/player_spawn.tscn" id="2_e6gbj"]
 [ext_resource type="PackedScene" uid="uid://dpfcdlv60jhdf" path="res://Props/Plants/plant.tscn" id="4_olde1"]
 [ext_resource type="PackedScene" uid="uid://bdwnnt1pnqm06" path="res://Enemies/Slime/Slime.tscn" id="5_rl6qp"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_s4guc"]
+vertices = PackedVector2Array(525.953, 547.719, -273.617, 524.289, -266.391, 335.461, 226.133, 358.477, 532.93, 476, 223.109, 104.867, 859.117, 97.1172, 573.18, 313.133, 861.867, 309.133, 570.18, 476)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 6, 7), PackedInt32Array(6, 8, 7), PackedInt32Array(4, 3, 7, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-284, 534, 535, 558, 542, 486, 580, 486, 583, 323, 872, 319, 869, 87, 213, 95, 216, 348, -276, 325)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3v6sf"]
+vertices = PackedVector2Array(190.992, 343.711, 197.391, 386.156, -270.758, 392.82, -258.977, 333.906, -152.133, -153.023, 1062.03, 236.781, 1061.03, 528.828, 1043.88, 526.922, 1036.74, 472.797, -268.813, -241.547, -214.273, -239.211, 194.078, 2.92188, 982.648, -148.969, 211.969, 1.17188, 985.648, -234, 1071.81, -234, 1065.81, 93, 600.938, 482.758, 600.047, 333.063, 895.211, 335.07, 887.797, -28.7969, 232.18, 58.9766, 223.508, 56.8203, 868.602, -29.1875, 1090.55, 93, 1098.47, 233.813, 863.578, 53.0781)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(3, 9, 10, 4), PackedInt32Array(11, 0, 4), PackedInt32Array(11, 4, 12, 13), PackedInt32Array(14, 15, 16, 12), PackedInt32Array(8, 17, 18, 19), PackedInt32Array(16, 5, 8, 19, 20, 12), PackedInt32Array(21, 22, 13, 12, 23), PackedInt32Array(24, 25, 5, 16), PackedInt32Array(23, 26, 21), PackedInt32Array(23, 12, 20)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-269, 333, -279, -252, -209, -249, -147, -163, 973, -159, 976, -244, 1082, -244, 1076, 83, 1100, 83, 1109, 243, 1072, 246, 1071, 540, 1035, 536, 1028, 483, 591, 493, 590, 323, 885, 325, 878, -19, 873, 63, 231, 69, 215, 65, 204, 12, 201, 343, 209, 396, -283, 403)])
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_8xjt3")
@@ -44,3 +54,9 @@ position = Vector2(-18, 278)
 
 [node name="Slime2" parent="." instance=ExtResource("5_rl6qp")]
 position = Vector2(308, -66)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_s4guc")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_3v6sf")
