@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://duuicchygkky7"]
+[gd_scene load_steps=6 format=3 uid="uid://duuicchygkky7"]
 
 [ext_resource type="Script" path="res://GUI/Player_HUD/player_hud.gd" id="1_3f1cx"]
 [ext_resource type="Texture2D" uid="uid://bvncg32ixo1dc" path="res://GUI/Player_HUD/gui-health.png" id="1_q6pgy"]
 [ext_resource type="PackedScene" uid="uid://bvy7fwyon6l22" path="res://GUI/Player_HUD/heart_gui.tscn" id="2_gxpf4"]
+[ext_resource type="Script" path="res://GUI/camera_move_edge.gd" id="4_5xhpb"]
 
-[node name="PlayerHud" type="CanvasLayer"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1toto"]
+radius = 103.0
+height = 416.0
+
+[node name="PlayerHud" type="CanvasLayer" groups=["player_hud"]]
 script = ExtResource("1_3f1cx")
 
 [node name="Control" type="Control" parent="."]
@@ -90,3 +95,21 @@ layout_mode = 2
 
 [node name="Heart20" parent="HFlowContainer" instance=ExtResource("2_gxpf4")]
 layout_mode = 2
+
+[node name="CameraMoveEdge" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("4_5xhpb")
+
+[node name="Area2D" type="Area2D" parent="CameraMoveEdge"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraMoveEdge/Area2D"]
+position = Vector2(240, 135)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1toto")
+
+[connection signal="mouse_entered" from="CameraMoveEdge/Area2D" to="CameraMoveEdge" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CameraMoveEdge/Area2D" to="CameraMoveEdge" method="_on_area_2d_mouse_exited"]
