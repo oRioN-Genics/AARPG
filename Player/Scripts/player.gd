@@ -3,7 +3,7 @@ class_name Player extends CharacterBody2D
 signal DirectionChanged(new_direction: Vector2)
 signal PlayerDamaged(hurt_box: HurtBox)
 
-@export var speed: float = 250.0
+@export var speed: float = 150.0
 var acceleration: float = 7
 
 var cardinal_direction: Vector2 = Vector2.DOWN
