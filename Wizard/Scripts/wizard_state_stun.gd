@@ -1,0 +1,60 @@
+class_name Wizard_State_Stun extends WState
+
+@export var knockback_speed: float = 200.0
+@export var deceleration_speed: float = 10.0
+@export var invulnerable_duration: float = 1.0
+
+var hurt_box: HurtBox
+var direction: Vector2
+
+var next_state: WState = null
+
+#@onready var idle: State = $"../Idle"
+@onready var idle: Wizard_State_Idle = $"../Idle"
+
+
+func Init() -> void:
+	player.PlayerDamaged.connect(_player_damaged)
+	pass
+
+
+func Enter() -> void:
+	player.animation_player.animation_finished.connect(_animation_finished)
+	
+	direction = player.global_position.direction_to(hurt_box.global_position)
+	player.velocity = direction * -knockback_speed
+	player.SetDirection()
+	player.UpdateAnimation("stun")
+	
+	player.MakeInvulnarable( invulnerable_duration )
+	player.effect_animation_player.play("damaged")
+	pass
+
+
+func Exit() -> void:
+	next_state = null
+	player.animation_player.animation_finished.disconnect(_animation_finished)
+	pass
+
+
+func Process(_delta: float) -> WState:
+	player.velocity -= player.velocity * deceleration_speed * _delta
+	return next_state
+
+
+func Physics(_delta: float) -> WState:
+	return null
+
+
+func HandleInput(_event: InputEvent) -> WState:
+	return null
+
+
+func _player_damaged(_hurt_box: HurtBox) -> void:
+	hurt_box = _hurt_box
+	state_machine.ChangeState(self)
+	pass
+
+
+func _animation_finished(_a: String) -> void:
+	next_state = idle

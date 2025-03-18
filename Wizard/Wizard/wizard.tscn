@@ -1,21 +1,19 @@
-[gd_scene load_steps=44 format=3 uid="uid://ds4sfnphltq0v"]
+[gd_scene load_steps=43 format=3 uid="uid://dwuh1r8e4nqj0"]
 
-[ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_2beys"]
-[ext_resource type="Texture2D" uid="uid://dt1t870ryrmal" path="res://Player/Sprites/PlayerSprite02.png" id="2_lhaah"]
-[ext_resource type="Texture2D" uid="uid://hq0sxb5s2urr" path="res://Player/Sprites/Shadow.png" id="3_7kcvw"]
-[ext_resource type="Texture2D" uid="uid://ddapqwqlf0ndn" path="res://Player/Sprites/AttackSprite01.png" id="4_28ro6"]
-[ext_resource type="PackedScene" uid="uid://btjk4py8xqdu5" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="5_d7653"]
-[ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="6_cih22"]
-[ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="7_q7re8"]
-[ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="8_e3dv6"]
-[ext_resource type="Script" path="res://Player/Scripts/state_attack.gd" id="9_cj1ol"]
-[ext_resource type="AudioStream" uid="uid://wigd8ds58kkb" path="res://Player/Audio/SwordSwoosh.wav" id="10_s3o27"]
-[ext_resource type="Script" path="res://Player/Scripts/state_stun.gd" id="11_sanv7"]
-[ext_resource type="Script" path="res://Player/Scripts/player_camera.gd" id="12_nsp2u"]
-[ext_resource type="Script" path="res://Player/Scripts/player_interactions_host_.gd" id="13_tpcqj"]
-[ext_resource type="PackedScene" uid="uid://cpcr7jt7vietk" path="res://GeneralNodes/HitBox/hit_box.tscn" id="14_73730"]
-[ext_resource type="Script" path="res://GeneralNodes/HitBox/hit_box.gd" id="15_2l7jk"]
-[ext_resource type="AudioStream" uid="uid://lo8xsokatowg" path="res://Player/Audio/hit_player.wav" id="16_5pv2l"]
+[ext_resource type="Script" path="res://Wizard/Scripts/wizard.gd" id="1_12i7d"]
+[ext_resource type="Texture2D" uid="uid://dtvswpw00oiuf" path="res://Wizard/Sprites/PlayerSprite02.png" id="1_ubrs1"]
+[ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_machine.gd" id="2_41hfq"]
+[ext_resource type="Texture2D" uid="uid://busin3xavqsak" path="res://Wizard/Sprites/AttackSprite01.png" id="2_hy8vv"]
+[ext_resource type="PackedScene" uid="uid://btjk4py8xqdu5" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="2_vand0"]
+[ext_resource type="Texture2D" uid="uid://4wdrxhcbj66" path="res://Wizard/Sprites/Shadow.png" id="3_1wda7"]
+[ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_idle.gd" id="3_nnkmd"]
+[ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_walk.gd" id="4_p8wth"]
+[ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_attack.gd" id="5_swgyh"]
+[ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_stun.gd" id="6_wrkjn"]
+[ext_resource type="Script" path="res://Player/Scripts/player_camera.gd" id="7_rfn23"]
+[ext_resource type="AudioStream" uid="uid://cs1enpbd7akgc" path="res://Wizard/Audio/SwordSwoosh.wav" id="9_bpvv4"]
+[ext_resource type="Script" path="res://GeneralNodes/HitBox/hit_box.gd" id="9_vknon"]
+[ext_resource type="PackedScene" uid="uid://cpcr7jt7vietk" path="res://GeneralNodes/HitBox/hit_box.tscn" id="10_qjnyh"]
 
 [sub_resource type="Animation" id="Animation_2e2br"]
 length = 0.001
@@ -82,7 +80,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("%AttackHurtBox/CollisionShape2D:position")
+tracks/5/path = NodePath("../AttackHurtBox/CollisionShape2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -159,7 +157,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("%AttackHurtBox/CollisionShape2D:position")
+tracks/5/path = NodePath("../AttackHurtBox/CollisionShape2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -236,7 +234,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("%AttackHurtBox/CollisionShape2D:position")
+tracks/5/path = NodePath("../AttackHurtBox/CollisionShape2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -313,7 +311,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("%AttackHurtBox/CollisionShape2D:position")
+tracks/5/path = NodePath("../AttackHurtBox/CollisionShape2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -662,6 +660,9 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Resource" id="Resource_2xdgw"]
+metadata/__load_path__ = "res://Player/Audio/hit_player.wav"
+
 [sub_resource type="Animation" id="Animation_2vk1f"]
 resource_name = "damaged"
 step = 0.1
@@ -687,7 +688,7 @@ tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("16_5pv2l")
+"stream": SubResource("Resource_2xdgw")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -715,16 +716,16 @@ _data = {
 "default": SubResource("Animation_pt5o3")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Wizard" type="CharacterBody2D"]
 position = Vector2(235, 121)
 collision_mask = 16
 motion_mode = 1
 wall_min_slide_angle = 0.174533
-script = ExtResource("1_2beys")
+script = ExtResource("1_12i7d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -22)
-texture = ExtResource("2_lhaah")
+texture = ExtResource("1_ubrs1")
 hframes = 16
 vframes = 3
 
@@ -732,12 +733,12 @@ vframes = 3
 modulate = Color(0, 0, 0, 0.784314)
 show_behind_parent = true
 position = Vector2(-1, 22)
-texture = ExtResource("3_7kcvw")
+texture = ExtResource("3_1wda7")
 
 [node name="AttackEffectSprite" type="Sprite2D" parent="Sprite2D"]
 z_index = 1
 position = Vector2(0, 10)
-texture = ExtResource("4_28ro6")
+texture = ExtResource("2_hy8vv")
 hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/AttackEffectSprite"]
@@ -746,12 +747,10 @@ libraries = {
 }
 autoplay = "no_attack"
 
-[node name="AttackHurtBox" parent="Sprite2D" instance=ExtResource("5_d7653")]
-unique_name_in_owner = true
+[node name="AttackHurtBox" parent="Sprite2D" instance=ExtResource("2_vand0")]
 position = Vector2(0, 18)
 collision_mask = 256
 monitoring = false
-damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox"]
 shape = SubResource("CircleShape2D_33qkq")
@@ -766,24 +765,24 @@ libraries = {
 }
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("6_cih22")
+script = ExtResource("2_41hfq")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("7_q7re8")
+script = ExtResource("3_nnkmd")
 
 [node name="Walk" type="Node" parent="StateMachine"]
-script = ExtResource("8_e3dv6")
+script = ExtResource("4_p8wth")
 
 [node name="Attack" type="Node" parent="StateMachine"]
-script = ExtResource("9_cj1ol")
-attack_sound = ExtResource("10_s3o27")
+script = ExtResource("5_swgyh")
+attack_sound = ExtResource("9_bpvv4")
 
 [node name="Stun" type="Node" parent="StateMachine"]
-script = ExtResource("11_sanv7")
+script = ExtResource("6_wrkjn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_draw_limits = true
-script = ExtResource("12_nsp2u")
+script = ExtResource("7_rfn23")
 
 [node name="Audio" type="Node2D" parent="."]
 
@@ -791,11 +790,10 @@ script = ExtResource("12_nsp2u")
 max_polyphony = 6
 
 [node name="Interactions" type="Node2D" parent="."]
-script = ExtResource("13_tpcqj")
 
-[node name="HitBox" parent="." instance=ExtResource("14_73730")]
+[node name="HitBox" parent="." instance=ExtResource("10_qjnyh")]
 collision_layer = 2
-script = ExtResource("15_2l7jk")
+script = ExtResource("9_vknon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -9)
