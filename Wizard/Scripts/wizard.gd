@@ -18,7 +18,7 @@ var max_hp: int = 6
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
 @onready var right_click_scene = preload("res://Player/right_click.tscn")
 @onready var hit_box: HitBox = $HitBox
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: Sprite2D = $Sprite2D  
 @onready var state_machine: WizardStateMachine = $StateMachine
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 

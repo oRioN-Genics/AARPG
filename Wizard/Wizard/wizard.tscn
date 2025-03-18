@@ -1,15 +1,17 @@
-[gd_scene load_steps=41 format=3 uid="uid://dwuh1r8e4nqj0"]
+[gd_scene load_steps=43 format=3 uid="uid://dwuh1r8e4nqj0"]
 
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard.gd" id="1_12i7d"]
 [ext_resource type="Texture2D" uid="uid://dtvswpw00oiuf" path="res://Wizard/Sprites/PlayerSprite02.png" id="1_ubrs1"]
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_machine.gd" id="2_41hfq"]
 [ext_resource type="Texture2D" uid="uid://busin3xavqsak" path="res://Wizard/Sprites/AttackSprite01.png" id="2_hy8vv"]
 [ext_resource type="PackedScene" uid="uid://btjk4py8xqdu5" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="2_vand0"]
+[ext_resource type="Texture2D" uid="uid://4wdrxhcbj66" path="res://Wizard/Sprites/Shadow.png" id="3_1wda7"]
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_idle.gd" id="3_nnkmd"]
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_walk.gd" id="4_p8wth"]
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_attack.gd" id="5_swgyh"]
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_stun.gd" id="6_wrkjn"]
 [ext_resource type="Script" path="res://Player/Scripts/player_camera.gd" id="7_rfn23"]
+[ext_resource type="AudioStream" uid="uid://cs1enpbd7akgc" path="res://Wizard/Audio/SwordSwoosh.wav" id="9_bpvv4"]
 [ext_resource type="Script" path="res://GeneralNodes/HitBox/hit_box.gd" id="9_vknon"]
 [ext_resource type="PackedScene" uid="uid://cpcr7jt7vietk" path="res://GeneralNodes/HitBox/hit_box.tscn" id="10_qjnyh"]
 
@@ -731,6 +733,7 @@ vframes = 3
 modulate = Color(0, 0, 0, 0.784314)
 show_behind_parent = true
 position = Vector2(-1, 22)
+texture = ExtResource("3_1wda7")
 
 [node name="AttackEffectSprite" type="Sprite2D" parent="Sprite2D"]
 z_index = 1
@@ -748,7 +751,6 @@ autoplay = "no_attack"
 position = Vector2(0, 18)
 collision_mask = 256
 monitoring = false
-script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox"]
 shape = SubResource("CircleShape2D_33qkq")
@@ -773,6 +775,7 @@ script = ExtResource("4_p8wth")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("5_swgyh")
+attack_sound = ExtResource("9_bpvv4")
 
 [node name="Stun" type="Node" parent="StateMachine"]
 script = ExtResource("6_wrkjn")

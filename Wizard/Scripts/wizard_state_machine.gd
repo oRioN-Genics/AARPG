@@ -26,7 +26,7 @@ func Initialize(_player: Wizard) -> void:
 	states = []
 	
 	for c in get_children():
-		if c is State:
+		if c is WState:
 			states.append(c)
 	
 	if states.size() == 0:
