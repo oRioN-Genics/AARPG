@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://djy4y7ao6kfwo"]
+
+[ext_resource type="Texture2D" uid="uid://3amc3ds1mvvc" path="res://GUI/HealthBar/healthbarUnder.png" id="1_uu53n"]
+[ext_resource type="Texture2D" uid="uid://cvi2sarbq6hkg" path="res://GUI/HealthBar/healthbarProgress.png" id="2_pigty"]
+
+[node name="HealthBar" type="TextureProgressBar"]
+texture_under = ExtResource("1_uu53n")
+texture_progress = ExtResource("2_pigty")

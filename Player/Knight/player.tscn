@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dtkc813cix617"]
+[gd_scene load_steps=45 format=3 uid="uid://dtkc813cix617"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_8xjt3"]
 [ext_resource type="Texture2D" uid="uid://dt1t870ryrmal" path="res://Player/Sprites/PlayerSprite02.png" id="2_v772l"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cpcr7jt7vietk" path="res://GeneralNodes/HitBox/hit_box.tscn" id="14_b7crv"]
 [ext_resource type="Script" path="res://GeneralNodes/HitBox/hit_box.gd" id="15_1l1wu"]
 [ext_resource type="AudioStream" uid="uid://lo8xsokatowg" path="res://Player/Audio/hit_player.wav" id="16_lihta"]
+[ext_resource type="PackedScene" uid="uid://djy4y7ao6kfwo" path="res://GUI/HealthBar/health_bar.tscn" id="17_ui53s"]
 
 [sub_resource type="Animation" id="Animation_2e2br"]
 length = 0.001
@@ -718,3 +719,14 @@ debug_use_custom = true
 debug_path_custom_color = Color(0.694118, 1, 1, 0.454902)
 debug_path_custom_point_size = 10.0
 debug_path_custom_line_width = 3.0
+
+[node name="HealthBar" parent="." instance=ExtResource("17_ui53s")]
+offset_left = -26.0
+offset_top = -60.0
+offset_right = 26.0
+offset_bottom = -52.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4

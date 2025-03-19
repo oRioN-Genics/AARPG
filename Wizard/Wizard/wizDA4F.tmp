@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dwuh1r8e4nqj0"]
+[gd_scene load_steps=46 format=3 uid="uid://dwuh1r8e4nqj0"]
 
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard.gd" id="1_12i7d"]
 [ext_resource type="Texture2D" uid="uid://dtvswpw00oiuf" path="res://Wizard/Sprites/PlayerSprite02.png" id="1_ubrs1"]
@@ -14,7 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://cs1enpbd7akgc" path="res://Wizard/Audio/SwordSwoosh.wav" id="9_bpvv4"]
 [ext_resource type="Script" path="res://GeneralNodes/HitBox/hit_box.gd" id="9_vknon"]
 [ext_resource type="PackedScene" uid="uid://cpcr7jt7vietk" path="res://GeneralNodes/HitBox/hit_box.tscn" id="10_qjnyh"]
-[ext_resource type="PackedScene" uid="uid://djy4y7ao6kfwo" path="res://GUI/HealthBar/health_bar.tscn" id="15_x2rda"]
+[ext_resource type="Texture2D" uid="uid://cakfvhoupav3d" path="res://Wizard/Health Bar/healthbarUnder.png" id="15_wuw4k"]
+[ext_resource type="Texture2D" uid="uid://st53agvx43x4" path="res://Wizard/Health Bar/healthbarProgress.png" id="16_ho5yr"]
+[ext_resource type="Script" path="res://Wizard/Health Bar/health_bar.gd" id="17_1q7c2"]
 
 [sub_resource type="Animation" id="Animation_2e2br"]
 length = 0.001
@@ -813,13 +815,11 @@ debug_path_custom_color = Color(0.458824, 1, 1, 0.454902)
 debug_path_custom_point_size = 0.0
 debug_path_custom_line_width = 3.0
 
-[node name="HealthBar" parent="." instance=ExtResource("15_x2rda")]
-offset_left = -26.0
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -32.0
 offset_top = -60.0
-offset_right = 26.0
-offset_bottom = -52.0
-nine_patch_stretch = true
-stretch_margin_left = 4
-stretch_margin_top = 4
-stretch_margin_right = 4
-stretch_margin_bottom = 4
+offset_right = 32.0
+offset_bottom = -50.0
+texture_under = ExtResource("15_wuw4k")
+texture_progress = ExtResource("16_ho5yr")
+script = ExtResource("17_1q7c2")

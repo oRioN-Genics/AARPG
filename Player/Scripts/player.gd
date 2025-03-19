@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 signal DirectionChanged(new_direction: Vector2)
 signal PlayerDamaged(hurt_box: HurtBox)
 
+
 @export var speed: float = 150.0
 var acceleration: float = 7
 
@@ -21,6 +22,7 @@ var max_hp: int = 6
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var health_bar: TextureProgressBar = $HealthBar
 
 
 # Called when the node enters the scene tree for the first time.
@@ -103,10 +105,15 @@ func _TakeDamage(hurt_box: HurtBox) -> void:
 
 func UpdateHP(delta: int) -> void:
 	hp = clampi(hp + delta, 0, max_hp)
-	PlayerHud.UpdateHP(hp, max_hp)
+	UpdateHealthBar()
 	pass
+	
 
-
+func UpdateHealthBar() -> void:
+	health_bar.value = hp * 100 / max_hp
+	pass
+	
+	
 func MakeInvulnarable(_duration: float = 1.0) -> void:
 	invulnerable = true
 	hit_box.monitoring = false
