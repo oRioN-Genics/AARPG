@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dtkc813cix617"]
+[gd_scene load_steps=44 format=3 uid="uid://dtkc813cix617"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_8xjt3"]
 [ext_resource type="Texture2D" uid="uid://dt1t870ryrmal" path="res://Player/Sprites/PlayerSprite02.png" id="2_v772l"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://Player/Scripts/state_attack.gd" id="9_uh2bd"]
 [ext_resource type="AudioStream" uid="uid://wigd8ds58kkb" path="res://Player/Audio/SwordSwoosh.wav" id="10_fc75a"]
 [ext_resource type="Script" path="res://Player/Scripts/state_stun.gd" id="11_bunb5"]
-[ext_resource type="Script" path="res://Player/Scripts/player_camera.gd" id="12_vyi3a"]
 [ext_resource type="Script" path="res://Player/Scripts/player_interactions_host_.gd" id="13_yaxvp"]
 [ext_resource type="PackedScene" uid="uid://cpcr7jt7vietk" path="res://GeneralNodes/HitBox/hit_box.tscn" id="14_b7crv"]
 [ext_resource type="Script" path="res://GeneralNodes/HitBox/hit_box.gd" id="15_1l1wu"]
@@ -683,10 +682,6 @@ attack_sound = ExtResource("10_fc75a")
 
 [node name="Stun" type="Node" parent="StateMachine"]
 script = ExtResource("11_bunb5")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-editor_draw_limits = true
-script = ExtResource("12_vyi3a")
 
 [node name="Audio" type="Node2D" parent="."]
 

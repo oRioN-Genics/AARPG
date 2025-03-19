@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dwuh1r8e4nqj0"]
+[gd_scene load_steps=43 format=3 uid="uid://dwuh1r8e4nqj0"]
 
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard.gd" id="1_12i7d"]
 [ext_resource type="Texture2D" uid="uid://dtvswpw00oiuf" path="res://Wizard/Sprites/PlayerSprite02.png" id="1_ubrs1"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_walk.gd" id="4_p8wth"]
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_attack.gd" id="5_swgyh"]
 [ext_resource type="Script" path="res://Wizard/Scripts/wizard_state_stun.gd" id="6_wrkjn"]
-[ext_resource type="Script" path="res://Player/Scripts/player_camera.gd" id="7_rfn23"]
 [ext_resource type="AudioStream" uid="uid://cs1enpbd7akgc" path="res://Wizard/Audio/SwordSwoosh.wav" id="9_bpvv4"]
 [ext_resource type="Script" path="res://GeneralNodes/HitBox/hit_box.gd" id="9_vknon"]
 [ext_resource type="PackedScene" uid="uid://cpcr7jt7vietk" path="res://GeneralNodes/HitBox/hit_box.tscn" id="10_qjnyh"]
@@ -780,10 +779,6 @@ attack_sound = ExtResource("9_bpvv4")
 
 [node name="Stun" type="Node" parent="StateMachine"]
 script = ExtResource("6_wrkjn")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-editor_draw_limits = true
-script = ExtResource("7_rfn23")
 
 [node name="Audio" type="Node2D" parent="."]
 
