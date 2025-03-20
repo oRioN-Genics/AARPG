@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvtmuj3gpqd2m"]
+
+[ext_resource type="Script" path="res://Levels/hero_manager.gd" id="1_xrvbm"]
+
+[node name="HeroManager" type="Node2D"]
+script = ExtResource("1_xrvbm")

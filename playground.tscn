@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://djrjgy1t17v70"]
+[gd_scene load_steps=10 format=3 uid="uid://djrjgy1t17v70"]
 
 [ext_resource type="PackedScene" uid="uid://0m4naes6rdws" path="res://Tile Maps/grass-01.tscn" id="2_ysdmc"]
 [ext_resource type="PackedScene" uid="uid://dpfcdlv60jhdf" path="res://Props/Plants/plant.tscn" id="3_7wto5"]
 [ext_resource type="PackedScene" uid="uid://bdwnnt1pnqm06" path="res://Enemies/Slime/Slime.tscn" id="4_hklwg"]
 [ext_resource type="PackedScene" uid="uid://cq6rbxnktqarj" path="res://Enemies/Goblin/Goblin.tscn" id="6_7r3tw"]
+[ext_resource type="PackedScene" uid="uid://cvtmuj3gpqd2m" path="res://Levels/HeroManager.tscn" id="6_bhhe0"]
 [ext_resource type="PackedScene" uid="uid://dtkc813cix617" path="res://Player/Knight/player.tscn" id="7_63ofv"]
 [ext_resource type="Script" path="res://Player/Scripts/player_camera.gd" id="7_vu3s0"]
 [ext_resource type="PackedScene" uid="uid://dwuh1r8e4nqj0" path="res://Wizard/Wizard/wizard.tscn" id="7_wx3h8"]
@@ -45,12 +46,14 @@ position = Vector2(397, -138)
 [node name="Goblin3" parent="." instance=ExtResource("6_7r3tw")]
 position = Vector2(550, -181)
 
-[node name="Wizard" parent="." instance=ExtResource("7_wx3h8")]
-position = Vector2(157, 211)
-
-[node name="Player" parent="." instance=ExtResource("7_63ofv")]
-position = Vector2(241, 172)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(214, 149)
 script = ExtResource("7_vu3s0")
+
+[node name="HeroManager" parent="." instance=ExtResource("6_bhhe0")]
+
+[node name="Wizard" parent="HeroManager" instance=ExtResource("7_wx3h8")]
+position = Vector2(157, 211)
+
+[node name="Player" parent="HeroManager" instance=ExtResource("7_63ofv")]
+position = Vector2(241, 172)
