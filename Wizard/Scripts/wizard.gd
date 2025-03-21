@@ -1,8 +1,7 @@
-class_name Player extends CharacterBody2D
+class_name Wizard extends CharacterBody2D
 
 signal DirectionChanged(new_direction: Vector2)
 signal PlayerDamaged(hurt_box: HurtBox)
-
 
 @export var speed: float = 150.0
 var acceleration: float = 7
@@ -20,17 +19,17 @@ var selected_hero
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
 @onready var right_click_scene = preload("res://Player/right_click.tscn")
-@onready var hero_manager: Node2D = $".."
+@onready var hero_manager: HeroManager = $".."
 @onready var hit_box: HitBox = $HitBox
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var state_machine: PlayerStateMachine = $StateMachine
+@onready var sprite: Sprite2D = $Sprite2D  
+@onready var state_machine: WizardStateMachine = $StateMachine
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var health_bar: TextureProgressBar = $HealthBar
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PlayerManager.player = self
+	PlayerManager.wizard = self
 	state_machine.Initialize(self)
 	hit_box.Damaged.connect(_TakeDamage)
 	hero_manager.HeroSelected.connect(_on_hero_selected)
@@ -63,7 +62,7 @@ func move_to_new_target() -> void:
 	var r_click = right_click_scene.instantiate()
 	r_click.global_position = nav_agent.target_position
 	get_tree().current_scene.add_child(r_click)
-
+		
 
 func _physics_process(_delta: float) -> void:
 	if nav_agent.is_navigation_finished():
@@ -126,7 +125,7 @@ func UpdateHP(delta: int) -> void:
 	hp = clampi(hp + delta, 0, max_hp)
 	UpdateHealthBar()
 	pass
-	
+
 
 func UpdateHealthBar() -> void:
 	health_bar.value = hp * 100 / max_hp

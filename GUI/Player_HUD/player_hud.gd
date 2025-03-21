@@ -3,10 +3,7 @@ extends CanvasLayer
 var hearts: Array[HeartGUI] = []
 
 func _ready() -> void:
-	for child in $HFlowContainer.get_children():
-		if child is HeartGUI:
-			hearts.append(child)
-			child.visible = false
+	pass
 
 
 func UpdateHP(_hp: int, _max_hp: int) -> void:
