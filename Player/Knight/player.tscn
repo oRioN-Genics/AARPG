@@ -1,6 +1,7 @@
-[gd_scene load_steps=45 format=3 uid="uid://dtkc813cix617"]
+[gd_scene load_steps=46 format=3 uid="uid://dtkc813cix617"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_8xjt3"]
+[ext_resource type="Material" uid="uid://dfa4a8ewr3nhe" path="res://00_Globals/outline_shader_material.tres" id="2_uyqto"]
 [ext_resource type="Texture2D" uid="uid://dt1t870ryrmal" path="res://Player/Sprites/PlayerSprite02.png" id="2_v772l"]
 [ext_resource type="Texture2D" uid="uid://hq0sxb5s2urr" path="res://Player/Sprites/Shadow.png" id="3_3nxq4"]
 [ext_resource type="Texture2D" uid="uid://ddapqwqlf0ndn" path="res://Player/Sprites/AttackSprite01.png" id="4_ie2e3"]
@@ -631,6 +632,7 @@ wall_min_slide_angle = 0.174533
 script = ExtResource("1_8xjt3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_uyqto")
 position = Vector2(0, -22)
 texture = ExtResource("2_v772l")
 hframes = 16

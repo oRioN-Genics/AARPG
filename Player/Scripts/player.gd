@@ -55,6 +55,7 @@ func _input(event: InputEvent) -> void:
 			selected_hero = null
 			return
 		else:
+			self.sprite.material.set_shader_parameter("outline_alpha", 0.0)
 			move_to_new_target()
 	
 	

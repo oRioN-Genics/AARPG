@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dfa4a8ewr3nhe"]
+
+[ext_resource type="Shader" path="res://Player/Knight/hero_highlight_shader.gdshader" id="1_b6wjg"]
+
+[resource]
+shader = ExtResource("1_b6wjg")
+shader_parameter/line_color = Color(0.803922, 0, 0.168627, 0)
+shader_parameter/line_thickness = 1.0
+shader_parameter/outline_alpha = 0.0

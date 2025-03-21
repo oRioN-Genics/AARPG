@@ -4,16 +4,7 @@ signal HeroSelected(hero)
 
 const HERO_COLLISION_MASK = 4
 
-var hero_being_selected = null
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var selected_hero = null
 
 
 func _input(event: InputEvent) -> void:
@@ -21,10 +12,7 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			var hero = raycast_check_for_heroes()
 			if hero:
-				hero_being_selected = hero
-				HeroSelected.emit(hero_being_selected)
-				hero_being_selected = null
-		hero_being_selected = null
+				select_hero(hero)
 
 
 func raycast_check_for_heroes():
@@ -37,3 +25,21 @@ func raycast_check_for_heroes():
 	if result.size() > 0:
 		return result[0].collider.get_parent()
 	return null
+
+
+func select_hero(new_hero):
+	if selected_hero == new_hero:
+		return  
+
+	if selected_hero and selected_hero.sprite and selected_hero.sprite.material:
+		var old_material = selected_hero.sprite.material.duplicate()
+		selected_hero.sprite.material = old_material
+		selected_hero.sprite.material.set_shader_parameter("outline_alpha", 0.0)
+
+	selected_hero = new_hero
+	if selected_hero and selected_hero.sprite:
+		var new_material = selected_hero.sprite.material.duplicate()
+		selected_hero.sprite.material = new_material
+		selected_hero.sprite.material.set_shader_parameter("outline_alpha", 1.0)
+
+	HeroSelected.emit(selected_hero)
