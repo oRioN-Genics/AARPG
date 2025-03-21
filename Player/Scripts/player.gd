@@ -15,9 +15,12 @@ var invulnerable: bool = false
 var hp: int = 6
 var max_hp: int = 6
 
+var selected_hero
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
 @onready var right_click_scene = preload("res://Player/right_click.tscn")
+@onready var hero_manager: Node2D = $".."
 @onready var hit_box: HitBox = $HitBox
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
@@ -30,6 +33,7 @@ func _ready() -> void:
 	PlayerManager.player = self
 	state_machine.Initialize(self)
 	hit_box.Damaged.connect(_TakeDamage)
+	hero_manager.HeroSelected.connect(_on_hero_selected)
 	UpdateHP(99)
 
 
@@ -38,13 +42,28 @@ func _process(_delta: float) -> void:
 	pass
 	
 
+func _on_hero_selected(hero) -> void:
+	selected_hero = hero
+
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
-		nav_agent.target_position = get_global_mouse_position()
-		var r_click = right_click_scene.instantiate()
-		r_click.global_position = nav_agent.target_position
-		get_tree().current_scene.add_child(r_click)
-		
+		if selected_hero == self:
+			move_to_new_target()
+			selected_hero = null
+		elif selected_hero != self and selected_hero != null:
+			selected_hero = null
+			return
+		else:
+			move_to_new_target()
+	
+	
+func move_to_new_target() -> void:
+	nav_agent.target_position = get_global_mouse_position()
+	var r_click = right_click_scene.instantiate()
+	r_click.global_position = nav_agent.target_position
+	get_tree().current_scene.add_child(r_click)
+
 
 func _physics_process(_delta: float) -> void:
 	if nav_agent.is_navigation_finished():

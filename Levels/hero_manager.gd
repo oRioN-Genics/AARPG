@@ -1,8 +1,10 @@
-extends Node2D
+class_name HeroManager extends Node2D
+
+signal HeroSelected(hero)
 
 const HERO_COLLISION_MASK = 4
 
-var hero_being_selected
+var hero_being_selected = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,9 +22,9 @@ func _input(event: InputEvent) -> void:
 			var hero = raycast_check_for_heroes()
 			if hero:
 				hero_being_selected = hero
-				print(hero)
-		else:
-			hero_being_selected = null
+				HeroSelected.emit(hero_being_selected)
+				hero_being_selected = null
+		hero_being_selected = null
 
 
 func raycast_check_for_heroes():

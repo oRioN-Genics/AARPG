@@ -51,9 +51,10 @@ position = Vector2(214, 149)
 script = ExtResource("7_vu3s0")
 
 [node name="HeroManager" parent="." instance=ExtResource("6_bhhe0")]
-
-[node name="Wizard" parent="HeroManager" instance=ExtResource("7_wx3h8")]
-position = Vector2(157, 211)
+y_sort_enabled = true
 
 [node name="Player" parent="HeroManager" instance=ExtResource("7_63ofv")]
 position = Vector2(241, 172)
+
+[node name="Wizard" parent="HeroManager" instance=ExtResource("7_wx3h8")]
+position = Vector2(157, 211)
